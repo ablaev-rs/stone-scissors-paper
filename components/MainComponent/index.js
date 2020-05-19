@@ -7,7 +7,7 @@ import ControlRoom from '../ControlRoom'
 import GameRoom from '../GameRoom'
 
 export default observer(function MainComponent ({ style }) {
-  const [followUserId, $followUserId] = useSession('userId')
+  const [followUserId] = useSession('userId')
   const [isGameCreator, $isGameCreator] = useQueryDoc('gamesCollection', { creatorId: followUserId, status: 'open' })
   const [isUser1, $isUser1] = useQueryDoc('gamesCollection', { user1: followUserId, status: 'open' })
   const [isUser2, $isUser2] = useQueryDoc('gamesCollection', { user2: followUserId, status: 'open' })

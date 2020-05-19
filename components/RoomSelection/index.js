@@ -4,7 +4,6 @@ import { observer, useQuery, useValue, useSession, $root, useDoc } from 'startup
 import './index.styl'
 import { } from '@startupjs/ui'
 import RoomItem from './RoomItem'
-import ErrorMessage from '../ErrorMessage'
 
 export default observer(function RoomSelection ({ style }) {
   const [games, $games] = useQuery('gamesCollection', {})
@@ -71,8 +70,6 @@ export default observer(function RoomSelection ({ style }) {
         Button(title = 'Create room' onPress = createRoomHandler)
 
       Text.textStyle or select an existing 
-      
-        ErrorMessage(error=error)
     
       View.enterBlock
         TextInput.inputField(
@@ -89,7 +86,7 @@ export default observer(function RoomSelection ({ style }) {
             View.room(key = game.idGame)
               RoomItem(gameId=game.idGame status=game.status user1=game.user1 user2=game.user2 id=game.id)
         else
-          Text Sorry, nothing found
+          Text.additinalTextStyle Sorry, nothing found
             
   `
 })
